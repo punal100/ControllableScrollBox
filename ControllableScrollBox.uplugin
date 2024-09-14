@@ -1,0 +1,24 @@
+{
+	"FileVersion": 3,
+	"Version": 1,
+	"VersionName": "1.0",
+	"FriendlyName": "ControllableScrollBox",
+	"Description": "Scroll Box with with More Controls",
+	"Category": "Widget Component",
+	"CreatedBy": "Punal Manalan",
+	"CreatedByURL": "https://github.com/punal100",
+	"DocsURL": "",
+	"MarketplaceURL": "",
+	"SupportURL": "",
+	"CanContainContent": true,
+	"IsBetaVersion": false,
+	"IsExperimentalVersion": false,
+	"Installed": false,
+	"Modules": [
+		{
+			"Name": "ControllableScrollBox",
+			"Type": "Runtime",
+			"LoadingPhase": "Default"
+		}
+	]
+}
