@@ -617,12 +617,12 @@ void UPunal_ScrollBox::OnDescendantDeselectedByDesigner(UWidget* DescendantWidge
 		}));
 }
 
+#endif
+
 float UPunal_ScrollBox::GetDragTriggerDistance() const
 {
 	return FSlateApplication::Get().GetDragTriggerDistance();
 }
-
-#endif
 
 /////////////////////////////////////////////////////
 
