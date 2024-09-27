@@ -134,6 +134,7 @@ public:
 		, _ScrollWhenFocusChanges(EScrollWhenFocusChanges::NoScroll)
 		, _OnUserScrolled()
 		, _OnMouseScrolled()
+		, _OnMouseScrollEnd()
 		, _ConsumeMouseWheel(EConsumeMouseWheel::WhenScrollingPossible)
 		{
 			_Clipping = EWidgetClipping::ClipToBounds;
@@ -189,6 +190,9 @@ public:
 
 		/** Called when the button is clicked */
 		SLATE_EVENT(FOnMouseScroll, OnMouseScrolled)
+
+		/** Called when the button is released */
+		SLATE_EVENT(FOnMouseScroll, OnMouseScrollEnd)
 
 		SLATE_ARGUMENT(EConsumeMouseWheel, ConsumeMouseWheel);
 
@@ -440,6 +444,9 @@ protected:
 
 	/** Fired when the user Mouse scrolls the scrollbox */
 	FOnMouseScroll OnMouseScrolled;
+
+	/** Fired when the user Ends the Mouse scrolls of the scrollbox */
+	FOnMouseScroll OnMouseScrollEnd;
 
 	/** The scrolling and stacking orientation. */
 	EOrientation Orientation;

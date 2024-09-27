@@ -145,7 +145,8 @@ TSharedRef<SWidget> UPunal_ScrollBox::RebuildWidget()
 		.AnimateWheelScrolling(bAnimateWheelScrolling)
 		.WheelScrollMultiplier(WheelScrollMultiplier)
 		.OnUserScrolled(BIND_UOBJECT_DELEGATE(FOnUserScrolled, SlateHandleUserScrolled))
-		.OnMouseScrolled(BIND_UOBJECT_DELEGATE(FOnMouseScroll, SlateHandleMouseScrolled));
+		.OnMouseScrolled(BIND_UOBJECT_DELEGATE(FOnMouseScroll, SlateHandleMouseScrolled))
+		.OnMouseScrollEnd(BIND_UOBJECT_DELEGATE(FOnMouseScroll, SlateHandleMouseScrollEnd));
 	PRAGMA_ENABLE_DEPRECATION_WARNINGS
 		for (UPanelSlot* PanelSlot : Slots)
 		{
@@ -576,6 +577,11 @@ void UPunal_ScrollBox::SlateHandleUserScrolled(float CurrentOffset)
 void UPunal_ScrollBox::SlateHandleMouseScrolled(const FGeometry& MyGeometry, const FPointerEvent& MouseEvent)
 {
 	OMouseScroll.Broadcast(MyGeometry, MouseEvent);
+}
+
+void UPunal_ScrollBox::SlateHandleMouseScrollEnd(const FGeometry& MyGeometry, const FPointerEvent& MouseEvent)
+{
+	OMouseScrollEnd.Broadcast(MyGeometry, MouseEvent);
 }
 
 #if WITH_EDITOR

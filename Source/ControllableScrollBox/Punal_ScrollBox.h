@@ -211,6 +211,9 @@ public:
 	UPROPERTY(BlueprintAssignable, Category = "Scroll|Event")
 	FOnMouseScrollEvent OMouseScroll;
 
+	UPROPERTY(BlueprintAssignable, Category = "Scroll|Event")
+	FOnMouseScrollEvent OMouseScrollEnd;
+
 	/**
 	 * Updates the scroll offset of the scrollbox.
 	 * @param NewScrollOffset is in Slate Units.
@@ -279,6 +282,7 @@ protected:
 
 	void SlateHandleUserScrolled(float CurrentOffset);
 	void SlateHandleMouseScrolled(const FGeometry& MyGeometry, const FPointerEvent& MouseEvent);
+	void SlateHandleMouseScrollEnd(const FGeometry& MyGeometry, const FPointerEvent& MouseEvent);
 
 	// Initialize IsFocusable in the constructor before the SWidget is constructed.
 	void InitBackPadScrolling(bool InBackPadScrolling);

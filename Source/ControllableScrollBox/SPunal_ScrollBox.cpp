@@ -126,6 +126,7 @@ void SPunal_ScrollBox::Construct(const FArguments& InArgs)
 	SoftwareCursorPosition = FVector2f::ZeroVector;
 	OnUserScrolled = InArgs._OnUserScrolled;
 	OnMouseScrolled = InArgs._OnMouseScrolled;
+	OnMouseScrollEnd = InArgs._OnMouseScrollEnd;
 	Orientation = InArgs._Orientation;
 	bScrollToEnd = false;
 	bIsScrollingActiveTimerRegistered = false;
@@ -734,6 +735,7 @@ FReply SPunal_ScrollBox::OnMouseButtonDown(const FGeometry& MyGeometry, const FP
 
 FReply SPunal_ScrollBox::OnMouseButtonUp(const FGeometry& MyGeometry, const FPointerEvent& MouseEvent)
 {
+	OnMouseScrollEnd.ExecuteIfBound(MyGeometry, MouseEvent);
 	if (MouseEvent.GetEffectingButton() == EKeys::RightMouseButton && bAllowsRightClickDragScrolling)
 	{
 		if (!bIsScrollingActiveTimerRegistered && IsRightClickScrolling())
@@ -959,6 +961,7 @@ FCursorReply SPunal_ScrollBox::OnCursorQuery(const FGeometry& MyGeometry, const 
 
 FReply SPunal_ScrollBox::OnTouchEnded(const FGeometry& MyGeometry, const FPointerEvent& InTouchEvent)
 {
+	OnMouseScrollEnd.ExecuteIfBound(MyGeometry, InTouchEvent);
 	CachedGeometry = MyGeometry;
 
 	if (HasMouseCaptureByUser(InTouchEvent.GetUserIndex(), InTouchEvent.GetPointerIndex()))
