@@ -115,8 +115,8 @@ public:
 	};
 
 	SLATE_BEGIN_ARGS(SPunal_ScrollBox)
-		: _Style(&FAppStyle::Get().GetWidgetStyle<FScrollBoxStyle>("Punal_ScrollBox"))
-		, _ScrollBarStyle(&FAppStyle::Get().GetWidgetStyle<FScrollBarStyle>("Punal_ScrollBar"))
+		: _Style(&FAppStyle::Get().GetWidgetStyle<FScrollBoxStyle>("ScrollBox"))
+		, _ScrollBarStyle(&FAppStyle::Get().GetWidgetStyle<FScrollBarStyle>("ScrollBar"))
 		, _ExternalScrollbar()
 		, _Orientation(Orient_Vertical)
 		, _ScrollBarVisibility(EVisibility::Visible)
